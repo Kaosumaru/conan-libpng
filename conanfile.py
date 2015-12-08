@@ -34,13 +34,14 @@ class libPNGConan(ConanFile):
             self.output.warn("=====> Options: %s" % config_options_string)
 
         cmake = CMake(self.settings)
-        self.run('cd %s && cmake . %s %s' % (self.libpng_name, cmake.command_line, config_options_string))
-        self.run("cd %s && cmake --build . %s" % (self.libpng_name, cmake.build_config))
+        self.run('cd %s && cmake -DCMAKE_INSTALL_PREFIX:PATH=../build . %s %s' % (self.libpng_name, cmake.command_line, config_options_string))
+        self.run("cd %s && cmake --build . --target install %s" % (self.libpng_name, cmake.build_config))
 
     def package(self):
-        self.copy("*.h", dst="include", src="libpng")
-        self.copy("*.lib", dst="lib", src="libpng/lib")
-        self.copy("*.a", dst="lib", src="libpng/lib")
+        self.copy("*.h", dst="include", src="build/include")
+        self.copy("*.lib", dst="lib", src="build/lib")
+        self.copy("*.a", dst="lib", src="build/lib")
+        self.copy("*.dll", dst="bin", src="build/bin")
 
     def package_info(self):
         self.cpp_info.libs = ["libpng"]
