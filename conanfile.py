@@ -5,6 +5,7 @@ import os
 class libPNGConan(ConanFile):
     name = "libPNG"
     version = "1.6.19"
+    url = "https://github.com/Kaosumaru/conan-libpng"
     settings = "os", "compiler", "build_type", "arch"
     exports = "libpng/*"
 
