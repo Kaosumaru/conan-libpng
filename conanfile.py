@@ -2,8 +2,8 @@ from conans import ConanFile, CMake
 from conans import tools
 import os
 
-class libPNGConan(ConanFile):
-    name = "libPNG"
+class libpngConan(ConanFile):
+    name = "libpng"
     version = "1.6.19"
     url = "https://github.com/Kaosumaru/conan-libpng"
     settings = "os", "compiler", "build_type", "arch"

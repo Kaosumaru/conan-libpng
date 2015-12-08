@@ -7,9 +7,9 @@ class DefaultNameConan(ConanFile):
     name = "DefaultName"
     version = "0.1"
     settings = "os", "compiler", "arch", "build_type"
-    requires = "libPNG/1.6.19@kaosumaru/stable"
+    requires = "libpng/1.6.19@kaosumaru/stable"
     generators = "cmake"
-    default_options = "libPNG:static=True"
+    default_options = "libpng:static=True"
 
     def build(self):
         cmake = CMake(self.settings)
