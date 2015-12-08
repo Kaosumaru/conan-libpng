@@ -44,4 +44,4 @@ class libPNGConan(ConanFile):
         self.copy("*.dll", dst="bin", src="build/bin")
 
     def package_info(self):
-        self.cpp_info.libs = ["libpng"]
+        self.cpp_info.libs = ["libpng16"]
