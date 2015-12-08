@@ -8,6 +8,9 @@ class libPNGConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     exports = "libpng/*"
 
+    options = { "static": [True, False] }
+    default_options = "=False\n".join(options.keys()) + "=False"
+
     libpng_name = "libpng-1.6.19"
     source_tgz = "http://downloads.sourceforge.net/project/libpng/libpng16/1.6.19/libpng-1.6.19.tar.gz?r=&ts=1449592480&use_mirror=netix"
 
@@ -41,7 +44,12 @@ class libPNGConan(ConanFile):
         self.copy("*.h", dst="include", src="build/include")
         self.copy("*.lib", dst="lib", src="build/lib")
         self.copy("*.a", dst="lib", src="build/lib")
-        self.copy("*.dll", dst="bin", src="build/bin")
+
+        if not self.options.static:
+            self.copy("*.dll", dst="bin", src="build/bin")
 
     def package_info(self):
-        self.cpp_info.libs = ["libpng16"]
+        if self.options.static:
+            self.cpp_info.libs = ["libpng16_static"]
+        else:
+            self.cpp_info.libs = ["libpng16"]
