@@ -1,0 +1,2 @@
+[requires]
+libPNG/1.6.19@kaosumaru/testing

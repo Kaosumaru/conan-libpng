@@ -1,0 +1,28 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=14
+    os=Windows
+
+[requires]
+    libPNG/1.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=14
+    os=Windows
+
+[full_requires]
+    libPNG/1.6.19@kaosumaru/testing:ee5dab950b6ea94ae953b93c55343e98c2ec39df
+    zlib/1.2.8@lasote/stable:0a461f8d4221509c1b9a75411e0cb44f7a3601c0
+
+[full_options]
+    zlib:shared=False
